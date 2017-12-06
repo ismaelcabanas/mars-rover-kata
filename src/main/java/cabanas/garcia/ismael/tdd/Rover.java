@@ -1,15 +1,26 @@
 package cabanas.garcia.ismael.tdd;
 
 public class Rover {
+
+    private final int posX;
+    private final int posY;
+    private final String orientation;
+
+    public Rover() {
+        this.posX = 0;
+        this.posY = 0;
+        this.orientation = "N";
+    }
+
     public int getPosX() {
-        return 0;
+        return posX;
     }
 
     public int getPosY() {
-        return 0;
+        return posY;
     }
 
     public String getOrientation() {
-        return "N";
+        return orientation;
     }
 }
