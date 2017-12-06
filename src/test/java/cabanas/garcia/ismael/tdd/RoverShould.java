@@ -26,4 +26,15 @@ public class RoverShould {
         assertThat(rover.getPosY()).isEqualTo(0);
         assertThat(rover.getOrientation()).isEqualTo("E");
     }
+
+    @Test public void
+    rotate_twice_to_right() {
+        Rover rover = new Rover();
+
+        rover.execute("RR");
+
+        assertThat(rover.getPosX()).isEqualTo(0);
+        assertThat(rover.getPosY()).isEqualTo(0);
+        assertThat(rover.getOrientation()).isEqualTo("S");
+    }
 }
