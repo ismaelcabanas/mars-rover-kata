@@ -1,10 +1,14 @@
 package cabanas.garcia.ismael.tdd;
 
+import junitparams.JUnitParamsRunner;
+import junitparams.Parameters;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+@RunWith(JUnitParamsRunner.class)
 public class RoverShould {
 
     private Rover rover;
@@ -22,39 +26,20 @@ public class RoverShould {
         assertThat(rover.getOrientation()).isEqualTo("N");
     }
 
-    @Test public void
-    rotate_to_right() {
-        rover.execute("R");
+    @Test
+    @Parameters({
+            "R, E",
+            "RR, S",
+            "RRR, W",
+            "RRRR, N"
+    }) public void
+    rotate_to_right(String commands, String expectedOrientation) {
 
+        rover.execute(commands);
+
+        assertThat(rover.getOrientation()).isEqualTo(expectedOrientation);
         assertThat(rover.getPosX()).isEqualTo(0);
         assertThat(rover.getPosY()).isEqualTo(0);
-        assertThat(rover.getOrientation()).isEqualTo("E");
     }
 
-    @Test public void
-    rotate_twice_to_right() {
-        rover.execute("RR");
-
-        assertThat(rover.getPosX()).isEqualTo(0);
-        assertThat(rover.getPosY()).isEqualTo(0);
-        assertThat(rover.getOrientation()).isEqualTo("S");
-    }
-
-    @Test public void
-    rotate_three_times_to_right() {
-        rover.execute("RRR");
-
-        assertThat(rover.getPosX()).isEqualTo(0);
-        assertThat(rover.getPosY()).isEqualTo(0);
-        assertThat(rover.getOrientation()).isEqualTo("W");
-    }
-
-    @Test public void
-    rotate_four_times_to_right() {
-        rover.execute("RRRR");
-
-        assertThat(rover.getPosX()).isEqualTo(0);
-        assertThat(rover.getPosY()).isEqualTo(0);
-        assertThat(rover.getOrientation()).isEqualTo("N");
-    }
 }
