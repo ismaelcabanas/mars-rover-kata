@@ -18,17 +18,16 @@ public enum Orientation {
     }
 
     public Orientation right() {
-        for (Orientation orientation : values()) {
-            if(rightOrientation.equals(orientation.value)) {
-                return orientation;
-            }
-        }
-        return null;
+        return directionTo(this.rightOrientation);
     }
 
     public Orientation left() {
+        return directionTo(this.leftOrientation);
+    }
+
+    private Orientation directionTo(String actualOrientation) {
         for (Orientation orientation : values()) {
-            if(leftOrientation.equals(orientation.value)) {
+            if(actualOrientation.equals(orientation.value)) {
                 return orientation;
             }
         }
