@@ -25,17 +25,23 @@ public class Rover {
     }
 
     public void execute(String commands) {
-        if(commands.equals("R")) {
-            this.orientation = "E";
+        for (char c : commands.toCharArray()) {
+            this.orientation = rotateToRight();
         }
-        else if(commands.equals("RR")) {
-            this.orientation = "S";
+    }
+
+    private String rotateToRight() {
+        if(this.orientation.equals("N")) {
+            return "E";
         }
-        else if(commands.equals("RRR")) {
-            this.orientation = "W";
+        else if(this.orientation.equals("E")) {
+            return "S";
+        }
+        else if(this.orientation.equals("S")) {
+            return "W";
         }
         else {
-            this.orientation = "N";
+            return "N";
         }
     }
 }
