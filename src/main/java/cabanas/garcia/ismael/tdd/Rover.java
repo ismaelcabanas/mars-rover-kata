@@ -31,8 +31,11 @@ public class Rover {
         else if(commands.equals("RR")) {
             this.orientation = "S";
         }
-        else {
+        else if(commands.equals("RRR")) {
             this.orientation = "W";
+        }
+        else {
+            this.orientation = "N";
         }
     }
 }
