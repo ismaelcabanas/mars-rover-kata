@@ -37,7 +37,8 @@ public class Rover {
     private String rotateToLeft() {
         if(this.orientation.equals("N")) return "W";
         if(this.orientation.equals("S")) return "E";
-        return "S";
+        if(this.orientation.equals("W")) return "S";
+        return "N";
     }
 
     private String rotateToRight() {
