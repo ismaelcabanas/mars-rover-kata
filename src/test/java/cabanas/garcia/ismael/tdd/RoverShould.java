@@ -42,4 +42,17 @@ public class RoverShould {
         assertThat(rover.getPosY()).isEqualTo(0);
     }
 
+    @Test
+    @Parameters({
+            "L, W"
+    }) public void
+    rotate_to_left(String commands, String expectedOrientation) {
+
+        rover.execute(commands);
+
+        assertThat(rover.getOrientation()).isEqualTo(expectedOrientation);
+        assertThat(rover.getPosX()).isEqualTo(0);
+        assertThat(rover.getPosY()).isEqualTo(0);
+    }
+
 }
