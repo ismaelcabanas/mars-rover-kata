@@ -4,12 +4,12 @@ public class Rover {
 
     private int posX;
     private int posY;
-    private String orientation;
+    private Orientation orientation;
 
     public Rover() {
         this.posX = 0;
         this.posY = 0;
-        this.orientation = "N";
+        this.orientation = Orientation.NORTH;
     }
 
     public int getPosX() {
@@ -21,30 +21,16 @@ public class Rover {
     }
 
     public String getOrientation() {
-        return orientation;
+        return orientation.getValue();
     }
 
     public void execute(String commands) {
         for (char c : commands.toCharArray())
             if(c == 'R') {
-                this.orientation = rotateToRight();
+                this.orientation = this.orientation.right();
             }
             else {
-                this.orientation = rotateToLeft();
+                this.orientation = this.orientation.left();
             }
         }
-
-    private String rotateToLeft() {
-        if(this.orientation.equals("N")) return "W";
-        if(this.orientation.equals("S")) return "E";
-        if(this.orientation.equals("W")) return "S";
-        return "N";
-    }
-
-    private String rotateToRight() {
-        if(this.orientation.equals("N")) return "E";
-        if(this.orientation.equals("E")) return "S";
-        if(this.orientation.equals("S")) return "W";
-        return "N";
-    }
 }
