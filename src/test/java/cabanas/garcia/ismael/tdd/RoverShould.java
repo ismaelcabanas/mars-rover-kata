@@ -45,7 +45,8 @@ public class RoverShould {
     @Test
     @Parameters({
             "L, W",
-            "LL, S"
+            "LL, S",
+            "LLL, E"
     }) public void
     rotate_to_left(String commands, String expectedOrientation) {
 
