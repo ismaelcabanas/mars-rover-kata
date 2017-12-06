@@ -48,4 +48,13 @@ public class RoverShould {
         assertThat(rover.getPosY()).isEqualTo(0);
         assertThat(rover.getOrientation()).isEqualTo("W");
     }
+
+    @Test public void
+    rotate_four_times_to_right() {
+        rover.execute("RRRR");
+
+        assertThat(rover.getPosX()).isEqualTo(0);
+        assertThat(rover.getPosY()).isEqualTo(0);
+        assertThat(rover.getOrientation()).isEqualTo("N");
+    }
 }
