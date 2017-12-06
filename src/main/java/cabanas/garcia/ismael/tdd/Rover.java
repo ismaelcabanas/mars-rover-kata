@@ -25,9 +25,17 @@ public class Rover {
     }
 
     public void execute(String commands) {
-        for (char c : commands.toCharArray()) {
-            this.orientation = rotateToRight();
+        for (char c : commands.toCharArray())
+            if(c == 'R') {
+                this.orientation = rotateToRight();
+            }
+            else {
+                this.orientation = rotateToLeft();
+            }
         }
+
+    private String rotateToLeft() {
+        return "W";
     }
 
     private String rotateToRight() {
