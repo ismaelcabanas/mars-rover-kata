@@ -23,4 +23,8 @@ public class Rover {
     public String getOrientation() {
         return orientation;
     }
+
+    public void execute(String commands) {
+
+    }
 }
