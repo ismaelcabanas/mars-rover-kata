@@ -25,6 +25,11 @@ public class Rover {
     }
 
     public void execute(String commands) {
-        this.orientation = "E";
+        if(commands.equals("R")) {
+            this.orientation = "E";
+        }
+        else {
+            this.orientation = "S";
+        }
     }
 }
