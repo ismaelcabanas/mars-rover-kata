@@ -2,9 +2,9 @@ package cabanas.garcia.ismael.tdd;
 
 public class Rover {
 
-    private final int posX;
-    private final int posY;
-    private final String orientation;
+    private int posX;
+    private int posY;
+    private String orientation;
 
     public Rover() {
         this.posX = 0;
@@ -25,6 +25,6 @@ public class Rover {
     }
 
     public void execute(String commands) {
-
+        this.orientation = "E";
     }
 }
