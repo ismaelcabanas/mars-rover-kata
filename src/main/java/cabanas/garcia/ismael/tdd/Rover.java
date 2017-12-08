@@ -36,21 +36,23 @@ public class Rover {
     }
 
     private Coordinates move() {
-        Coordinates newCoordinates = new Coordinates();
+        int x = this.coordinates.x();
+        int y = this.coordinates.y();
+
         switch (this.orientation) {
             case NORTH:
-                newCoordinates = new Coordinates(this.coordinates.x(), this.coordinates.y()+1);
+                y++;
                 break;
             case SOUTH:
-                newCoordinates = new Coordinates(this.coordinates.x(), this.coordinates.y()-1);
+                y--;
                 break;
             case EAST:
-                newCoordinates = new Coordinates(this.coordinates.x()+1, this.coordinates.y());
+                x++;
                 break;
             case WEST:
-                newCoordinates = new Coordinates(this.coordinates.x()-1, this.coordinates.y());
+                x--;
                 break;
         }
-        return newCoordinates;
+        return new Coordinates(x, y);
     }
 }
