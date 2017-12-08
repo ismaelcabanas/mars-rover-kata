@@ -41,7 +41,7 @@ public class Rover {
 
         switch (this.orientation) {
             case NORTH:
-                y++;
+                y = (y + 1) % 10;
                 break;
             case SOUTH:
                 y--;
@@ -53,6 +53,7 @@ public class Rover {
                 x--;
                 break;
         }
+
         return new Coordinates(x, y);
     }
 }
