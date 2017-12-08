@@ -47,7 +47,7 @@ public class Rover {
                 y--;
                 break;
             case EAST:
-                x++;
+                x = (x + 1) % 10;
                 break;
             case WEST:
                 x--;
