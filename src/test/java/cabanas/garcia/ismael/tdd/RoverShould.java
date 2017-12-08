@@ -60,14 +60,23 @@ public class RoverShould {
 
     @Test public void
     move_from_start_position() {
-        String command = "M";
+        String commands = "M";
 
-        rover.execute(command);
+        rover.execute(commands);
 
         assertThat(rover.getPosX()).isEqualTo(0);
         assertThat(rover.getPosY()).isEqualTo(1);
         assertThat(rover.getOrientation()).isEqualTo("N");
     }
 
+    @Test public void
+    move_from_south_orientation() {
+        String commands = "MRRM";
 
+        rover.execute(commands);
+
+        assertThat(rover.getPosX()).isEqualTo(0);
+        assertThat(rover.getPosY()).isEqualTo(0);
+        assertThat(rover.getOrientation()).isEqualTo("S");
+    }
 }
