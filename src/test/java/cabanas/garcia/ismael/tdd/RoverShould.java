@@ -74,8 +74,8 @@ public class RoverShould {
 
     @Test
     @Parameters({
-            "RRM, 0, -1, S",
-            "RRMMMM, 0, -4, S"
+            "RRM, 0, 9, S",
+            "RRMMMM, 0, 6, S"
     }) public void
     move_down(String commands, int expectedPosX, int expectedPosY, String expectedOrientation) {
 
@@ -118,7 +118,7 @@ public class RoverShould {
     @Parameters({
             "MMMMMMMMMM, 0, 0, N"
     }) public void
-    wrap_from_top_to_bottom_when_moving_to_norht(String commands, int expectedPosX, int expectedPosY,
+    wrap_from_top_to_bottom_when_moving_to_north(String commands, int expectedPosX, int expectedPosY,
                                                           String expectedOrientation) {
         rover.execute(commands);
 
@@ -139,4 +139,5 @@ public class RoverShould {
         assertThat(rover.getPosY()).isEqualTo(expectedPosY);
         assertThat(rover.getOrientation()).isEqualTo(expectedOrientation);
     }
+
 }
