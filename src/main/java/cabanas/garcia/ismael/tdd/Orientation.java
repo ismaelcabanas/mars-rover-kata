@@ -1,6 +1,6 @@
 package cabanas.garcia.ismael.tdd;
 
-public enum Orientation {
+enum Orientation {
     NORTH("N", "E", "W"), EAST("E", "S", "N"), WEST("W", "N", "S"), SOUTH("S", "W", "E");
 
     private final String value;
