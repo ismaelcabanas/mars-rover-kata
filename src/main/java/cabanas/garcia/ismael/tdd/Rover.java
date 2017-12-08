@@ -40,6 +40,9 @@ public class Rover {
                     case SOUTH:
                         this.posY--;
                         break;
+                    case EAST:
+                        this.posX++;
+                        break;
                 }
             }
     }
