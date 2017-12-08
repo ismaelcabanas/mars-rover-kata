@@ -2,6 +2,9 @@ package cabanas.garcia.ismael.tdd;
 
 public class Rover {
 
+    private static final int MAX_HEIGHT = 10;
+    private static final int MAX_WIDTH = 10;
+
     private Orientation orientation;
     private Coordinates coordinates;
 
@@ -41,16 +44,16 @@ public class Rover {
 
         switch (this.orientation) {
             case NORTH:
-                y = (y + 1) % 10;
+                y = (y + 1) % MAX_HEIGHT;
                 break;
             case SOUTH:
-                y = (y > 0) ? y - 1 : 9;
+                y = (y > 0) ? y - 1 : MAX_HEIGHT - 1;
                 break;
             case EAST:
-                x = (x + 1) % 10;
+                x = (x + 1) % MAX_WIDTH;
                 break;
             case WEST:
-                x = (x > 0) ? x - 1 : 9;
+                x = (x > 0) ? x - 1 : MAX_WIDTH - 1;
                 break;
         }
 
