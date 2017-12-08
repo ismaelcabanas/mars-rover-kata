@@ -50,7 +50,7 @@ public class Rover {
                 x = (x + 1) % 10;
                 break;
             case WEST:
-                x--;
+                x = (x > 0) ? x - 1 : 9;
                 break;
         }
 
