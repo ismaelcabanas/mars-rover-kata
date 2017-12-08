@@ -90,4 +90,15 @@ public class RoverShould {
         assertThat(rover.getPosY()).isEqualTo(0);
         assertThat(rover.getOrientation()).isEqualTo("E");
     }
+
+    @Test public void
+    move_from_west_orientation() {
+        String commands = "RMRRM";
+
+        rover.execute(commands);
+
+        assertThat(rover.getPosX()).isEqualTo(0);
+        assertThat(rover.getPosY()).isEqualTo(0);
+        assertThat(rover.getOrientation()).isEqualTo("W");
+    }
 }
