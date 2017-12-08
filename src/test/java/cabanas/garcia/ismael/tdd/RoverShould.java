@@ -58,4 +58,16 @@ public class RoverShould {
         assertThat(rover.getPosY()).isEqualTo(0);
     }
 
+    @Test public void
+    move_from_start_position() {
+        String command = "M";
+
+        rover.execute(command);
+
+        assertThat(rover.getPosX()).isEqualTo(0);
+        assertThat(rover.getPosY()).isEqualTo(1);
+        assertThat(rover.getOrientation()).isEqualTo("N");
+    }
+
+
 }
