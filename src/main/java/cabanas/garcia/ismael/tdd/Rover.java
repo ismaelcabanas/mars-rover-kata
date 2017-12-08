@@ -2,22 +2,20 @@ package cabanas.garcia.ismael.tdd;
 
 public class Rover {
 
-    private int posX;
-    private int posY;
     private Orientation orientation;
+    private Coordinates coordinates;
 
     public Rover() {
-        this.posX = 0;
-        this.posY = 0;
+        this.coordinates = new Coordinates();
         this.orientation = Orientation.NORTH;
     }
 
     public int getPosX() {
-        return posX;
+        return this.coordinates.x();
     }
 
     public int getPosY() {
-        return posY;
+        return this.coordinates.y();
     }
 
     public String getOrientation() {
@@ -32,25 +30,27 @@ public class Rover {
             else if(c == 'L') {
                 this.orientation = this.orientation.left();
             }
-            else {
-                move();
+            else if(c == 'M'){
+                this.coordinates = move();
             }
     }
 
-    private void move() {
+    private Coordinates move() {
+        Coordinates newCoordinates = new Coordinates();
         switch (this.orientation) {
             case NORTH:
-                this.posY++;
+                newCoordinates = new Coordinates(this.coordinates.x(), this.coordinates.y()+1);
                 break;
             case SOUTH:
-                this.posY--;
+                newCoordinates = new Coordinates(this.coordinates.x(), this.coordinates.y()-1);
                 break;
             case EAST:
-                this.posX++;
+                newCoordinates = new Coordinates(this.coordinates.x()+1, this.coordinates.y());
                 break;
             case WEST:
-                this.posX--;
+                newCoordinates = new Coordinates(this.coordinates.x()-1, this.coordinates.y());
                 break;
         }
+        return newCoordinates;
     }
 }
