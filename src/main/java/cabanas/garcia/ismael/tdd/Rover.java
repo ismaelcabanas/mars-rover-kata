@@ -29,8 +29,11 @@ public class Rover {
             if(c == 'R') {
                 this.orientation = this.orientation.right();
             }
-            else {
+            else if(c == 'L') {
                 this.orientation = this.orientation.left();
             }
-        }
+            else {
+                this.posY = 1;
+            }
+    }
 }
