@@ -102,8 +102,8 @@ public class RoverShould {
 
     @Test
     @Parameters({
-            "LM, -1, 0, W",
-            "LMMMM, -4, 0, W"
+            "LM, 9, 0, W",
+            "LMMMM, 6, 0, W"
     }) public void
     move_left(String commands, int expectedPosX, int expectedPosY, String expectedOrientation) {
 
