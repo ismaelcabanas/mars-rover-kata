@@ -60,7 +60,8 @@ public class RoverShould {
 
     @Test
     @Parameters({
-            "M, 0, 1, N"
+            "M, 0, 1, N",
+            "MMMM, 0, 4, N"
     }) public void
     move_up(String commands, int expectedPosX, int expectedPosY, String expectedOrientation) {
 
@@ -71,36 +72,45 @@ public class RoverShould {
         assertThat(rover.getOrientation()).isEqualTo(expectedOrientation);
     }
 
-    @Test public void
-    move_from_south_orientation() {
-        String commands = "MRRM";
+    @Test
+    @Parameters({
+            "RRM, 0, -1, S",
+            "RRMMMM, 0, -4, S"
+    }) public void
+    move_down(String commands, int expectedPosX, int expectedPosY, String expectedOrientation) {
 
         rover.execute(commands);
 
-        assertThat(rover.getPosX()).isEqualTo(0);
-        assertThat(rover.getPosY()).isEqualTo(0);
-        assertThat(rover.getOrientation()).isEqualTo("S");
+        assertThat(rover.getPosX()).isEqualTo(expectedPosX);
+        assertThat(rover.getPosY()).isEqualTo(expectedPosY);
+        assertThat(rover.getOrientation()).isEqualTo(expectedOrientation);
     }
 
-    @Test public void
-    move_from_east_orientation() {
-        String commands = "RM";
+    @Test
+    @Parameters({
+            "RM, 1, 0, E",
+            "RMMMM, 4, 0, E"
+    }) public void
+    move_right(String commands, int expectedPosX, int expectedPosY, String expectedOrientation) {
 
         rover.execute(commands);
 
-        assertThat(rover.getPosX()).isEqualTo(1);
-        assertThat(rover.getPosY()).isEqualTo(0);
-        assertThat(rover.getOrientation()).isEqualTo("E");
+        assertThat(rover.getPosX()).isEqualTo(expectedPosX);
+        assertThat(rover.getPosY()).isEqualTo(expectedPosY);
+        assertThat(rover.getOrientation()).isEqualTo(expectedOrientation);
     }
 
-    @Test public void
-    move_from_west_orientation() {
-        String commands = "RMRRM";
+    @Test
+    @Parameters({
+            "LM, -1, 0, W",
+            "LMMMM, -4, 0, W"
+    }) public void
+    move_left(String commands, int expectedPosX, int expectedPosY, String expectedOrientation) {
 
         rover.execute(commands);
 
-        assertThat(rover.getPosX()).isEqualTo(0);
-        assertThat(rover.getPosY()).isEqualTo(0);
-        assertThat(rover.getOrientation()).isEqualTo("W");
+        assertThat(rover.getPosX()).isEqualTo(expectedPosX);
+        assertThat(rover.getPosY()).isEqualTo(expectedPosY);
+        assertThat(rover.getOrientation()).isEqualTo(expectedOrientation);
     }
 }
