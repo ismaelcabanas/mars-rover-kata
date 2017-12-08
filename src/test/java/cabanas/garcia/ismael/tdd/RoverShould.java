@@ -127,4 +127,16 @@ public class RoverShould {
         assertThat(rover.getOrientation()).isEqualTo(expectedOrientation);
     }
 
+    @Test
+    @Parameters({
+            "RMMMMMMMMMM, 0, 0, E"
+    }) public void
+    wrap_from_rigth_to_left_when_moving_to_east(String commands, int expectedPosX, int expectedPosY,
+                                                 String expectedOrientation) {
+        rover.execute(commands);
+
+        assertThat(rover.getPosX()).isEqualTo(expectedPosX);
+        assertThat(rover.getPosY()).isEqualTo(expectedPosY);
+        assertThat(rover.getOrientation()).isEqualTo(expectedOrientation);
+    }
 }
