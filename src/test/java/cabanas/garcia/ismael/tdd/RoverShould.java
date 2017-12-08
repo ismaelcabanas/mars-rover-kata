@@ -118,7 +118,7 @@ public class RoverShould {
     @Parameters({
             "MMMMMMMMMM, 0, 0, N"
     }) public void
-    return_to_initial_position_when_reach_top_of_the_grid(String commands, int expectedPosX, int expectedPosY,
+    wrap_from_top_to_bottom_when_moving_to_norht(String commands, int expectedPosX, int expectedPosY,
                                                           String expectedOrientation) {
         rover.execute(commands);
 
@@ -126,4 +126,5 @@ public class RoverShould {
         assertThat(rover.getPosY()).isEqualTo(expectedPosY);
         assertThat(rover.getOrientation()).isEqualTo(expectedOrientation);
     }
+
 }
