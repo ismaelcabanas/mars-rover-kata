@@ -15,7 +15,7 @@ public class RoverShould {
 
     @Before public void
     setUp() {
-        rover = new Rover();
+        rover = new Rover(new Grid());
     }
 
     @Test

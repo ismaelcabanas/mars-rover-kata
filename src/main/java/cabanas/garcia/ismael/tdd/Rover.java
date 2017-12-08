@@ -4,10 +4,12 @@ public class Rover {
 
     private Orientation orientation;
     private Coordinates coordinates;
+    private Grid grid;
 
-    public Rover() {
+    public Rover(Grid grid) {
         this.coordinates = new Coordinates();
         this.orientation = Orientation.NORTH;
+        this.grid = grid;
     }
 
     public int getPosX() {
@@ -31,7 +33,7 @@ public class Rover {
                 this.orientation = this.orientation.left();
             }
             else if(c == 'M'){
-                this.coordinates = new Grid().nextCoordinateFor(coordinates, orientation);
+                this.coordinates = grid.nextCoordinateFor(coordinates, orientation);
             }
     }
 }
