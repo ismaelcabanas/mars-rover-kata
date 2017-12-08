@@ -33,20 +33,24 @@ public class Rover {
                 this.orientation = this.orientation.left();
             }
             else {
-                switch (this.orientation) {
-                    case NORTH:
-                        this.posY++;
-                        break;
-                    case SOUTH:
-                        this.posY--;
-                        break;
-                    case EAST:
-                        this.posX++;
-                        break;
-                    case WEST:
-                        this.posX--;
-                        break;
-                }
+                move();
             }
+    }
+
+    private void move() {
+        switch (this.orientation) {
+            case NORTH:
+                this.posY++;
+                break;
+            case SOUTH:
+                this.posY--;
+                break;
+            case EAST:
+                this.posX++;
+                break;
+            case WEST:
+                this.posX--;
+                break;
+        }
     }
 }
