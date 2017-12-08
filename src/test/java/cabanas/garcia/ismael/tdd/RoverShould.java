@@ -58,15 +58,17 @@ public class RoverShould {
         assertThat(rover.getPosY()).isEqualTo(0);
     }
 
-    @Test public void
-    move_from_start_position() {
-        String commands = "M";
+    @Test
+    @Parameters({
+            "M, 0, 1, N"
+    }) public void
+    move_up(String commands, int expectedPosX, int expectedPosY, String expectedOrientation) {
 
         rover.execute(commands);
 
-        assertThat(rover.getPosX()).isEqualTo(0);
-        assertThat(rover.getPosY()).isEqualTo(1);
-        assertThat(rover.getOrientation()).isEqualTo("N");
+        assertThat(rover.getPosX()).isEqualTo(expectedPosX);
+        assertThat(rover.getPosY()).isEqualTo(expectedPosY);
+        assertThat(rover.getOrientation()).isEqualTo(expectedOrientation);
     }
 
     @Test public void
