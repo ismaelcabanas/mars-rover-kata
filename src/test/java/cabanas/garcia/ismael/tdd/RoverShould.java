@@ -79,4 +79,15 @@ public class RoverShould {
         assertThat(rover.getPosY()).isEqualTo(0);
         assertThat(rover.getOrientation()).isEqualTo("S");
     }
+
+    @Test public void
+    move_from_east_orientation() {
+        String commands = "RM";
+
+        rover.execute(commands);
+
+        assertThat(rover.getPosX()).isEqualTo(1);
+        assertThat(rover.getPosY()).isEqualTo(0);
+        assertThat(rover.getOrientation()).isEqualTo("E");
+    }
 }
