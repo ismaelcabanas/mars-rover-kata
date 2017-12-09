@@ -24,7 +24,7 @@ public class Rover {
         return orientation.getValue();
     }
 
-    public void execute(String commands) {
+    public String execute(String commands) {
         for (char c : commands.toCharArray())
             if(c == 'R') {
                 this.orientation = this.orientation.right();
@@ -35,5 +35,6 @@ public class Rover {
             else if(c == 'M'){
                 this.coordinates = grid.nextCoordinateFor(coordinates, orientation);
             }
+        return coordinates.x() + ":" + coordinates.y() + ":" + orientation.getValue();
     }
 }
