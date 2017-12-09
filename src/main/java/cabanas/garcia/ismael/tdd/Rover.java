@@ -7,7 +7,7 @@ public class Rover {
     private Grid grid;
 
     public Rover(Grid grid) {
-        this.coordinates = new Coordinates();
+        this.coordinates = new Coordinates(0, 0);
         this.orientation = Orientation.NORTH;
         this.grid = grid;
     }
