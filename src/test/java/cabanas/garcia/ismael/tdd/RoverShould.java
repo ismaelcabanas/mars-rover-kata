@@ -6,6 +6,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import java.util.Arrays;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(JUnitParamsRunner.class)
@@ -125,4 +127,17 @@ public class RoverShould {
         assertThat(actual).isEqualTo(expectedResult);
     }
 
+    @Test
+    @Parameters({
+            "MMM, 0:2:N"
+    }) public void
+    stop_when_obstacle_in_0_3(String commands, String expectedResult) {
+        Coordinates coordinate_0_3 = new Coordinates(0, 3);
+        Grid gridWithObstacle = new Grid(Arrays.asList(coordinate_0_3));
+        Rover rover = new Rover(gridWithObstacle);
+
+        String actual = rover.execute(commands);
+
+        assertThat(actual).isEqualTo(expectedResult);
+    }
 }
