@@ -1,8 +1,21 @@
 package cabanas.garcia.ismael.tdd;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 class Grid {
     static final int MAX_HEIGHT = 10;
     static final int MAX_WIDTH = 10;
+    private final List<Coordinates> obstaclesCoordinates;
+
+    public Grid(List<Coordinates> obstaclesCoordinates) {
+        this.obstaclesCoordinates = obstaclesCoordinates;
+    }
+
+    public Grid() {
+        this.obstaclesCoordinates = Collections.emptyList();
+    }
 
     Coordinates nextCoordinateFor(Coordinates coordinates, Orientation orientation) {
         int x = coordinates.x();
@@ -23,6 +36,15 @@ class Grid {
                 break;
         }
 
-        return new Coordinates(x, y);
+        Coordinates newCoordinates = new Coordinates(x, y);
+
+        if(isAnObstacle(newCoordinates))
+            return null;
+
+        return newCoordinates;
+    }
+
+    private boolean isAnObstacle(Coordinates coordinates) {
+        return obstaclesCoordinates.contains(coordinates);
     }
 }

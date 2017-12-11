@@ -25,6 +25,7 @@ public class Rover {
     }
 
     public String execute(String commands) {
+        String obstacle = "";
         for (char c : commands.toCharArray())
             if(c == 'R') {
                 this.orientation = this.orientation.right();
@@ -33,8 +34,14 @@ public class Rover {
                 this.orientation = this.orientation.left();
             }
             else if(c == 'M'){
-                this.coordinates = grid.nextCoordinateFor(coordinates, orientation);
+                Coordinates nextCoordinates = grid.nextCoordinateFor(coordinates, orientation);
+                if(nextCoordinates != null) {
+                    this.coordinates = nextCoordinates;
+                }
+                else {
+                    obstacle = "O:";
+                }
             }
-        return coordinates.x() + ":" + coordinates.y() + ":" + orientation.getValue();
+        return obstacle + coordinates.x() + ":" + coordinates.y() + ":" + orientation.getValue();
     }
 }
