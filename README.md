@@ -13,4 +13,4 @@ Rules:
 6. The rover receives a char array of commands e.g. RMMLM and returnts the finishing point after the moves e.g. 2:1:N
 7. The rover wraps around if it reaches the end of the grid.
 8. The grid may have obstacles. If a given sequence of commands encounters an obstacle, the rover moves up 
-to the last possible point and reports the obstacle e.g. 0:2:2:N
+to the last possible point and reports the obstacle e.g. O:2:2:N
