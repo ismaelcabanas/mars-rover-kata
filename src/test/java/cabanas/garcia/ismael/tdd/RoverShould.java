@@ -129,12 +129,14 @@ public class RoverShould {
 
     @Test
     @Parameters({
-            "MMM, O:0:2:N"
+            "MMM, O:0:2:N",
+            "RMMMMM, O:1:0:E"
     }) public void
     stop_when_obstacle_in_0_3(String commands, String expectedResult) {
         Coordinates coordinate_0_3 = new Coordinates(0, 3);
-        Grid gridWithObstacle = new Grid(Arrays.asList(coordinate_0_3));
-        Rover rover = new Rover(gridWithObstacle);
+        Coordinates coordinate_2_0 = new Coordinates(2, 0);
+        Grid gridWithObstacles = new Grid(Arrays.asList(coordinate_0_3, coordinate_2_0));
+        Rover rover = new Rover(gridWithObstacles);
 
         String actual = rover.execute(commands);
 
