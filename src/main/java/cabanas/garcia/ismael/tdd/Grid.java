@@ -3,6 +3,7 @@ package cabanas.garcia.ismael.tdd;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 class Grid {
     static final int MAX_HEIGHT = 10;
@@ -17,7 +18,7 @@ class Grid {
         this.obstaclesCoordinates = Collections.emptyList();
     }
 
-    Coordinates nextCoordinateFor(Coordinates coordinates, Orientation orientation) {
+    Optional<Coordinates> nextCoordinateFor(Coordinates coordinates, Orientation orientation) {
         int x = coordinates.x();
         int y = coordinates.y();
 
@@ -39,9 +40,9 @@ class Grid {
         Coordinates newCoordinates = new Coordinates(x, y);
 
         if(isAnObstacle(newCoordinates))
-            return null;
+            return Optional.empty();
 
-        return newCoordinates;
+        return Optional.of(newCoordinates);
     }
 
     private boolean isAnObstacle(Coordinates coordinates) {

@@ -1,5 +1,7 @@
 package cabanas.garcia.ismael.tdd;
 
+import java.util.Optional;
+
 public class Rover {
 
     private Orientation orientation;
@@ -34,9 +36,9 @@ public class Rover {
                 this.orientation = this.orientation.left();
             }
             else if(c == 'M'){
-                Coordinates nextCoordinates = grid.nextCoordinateFor(coordinates, orientation);
-                if(nextCoordinates != null) {
-                    this.coordinates = nextCoordinates;
+                Optional<Coordinates> nextCoordinates = grid.nextCoordinateFor(coordinates, orientation);
+                if(nextCoordinates.isPresent()) {
+                    this.coordinates = nextCoordinates.get();
                 }
                 else {
                     obstacle = "O:";
